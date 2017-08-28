@@ -1,0 +1,59 @@
+<section class="flexbox-container">
+    <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1  box-shadow-2 p-0">
+        <div class="card border-grey border-lighten-3 m-0">
+            <div class="card-header card-border no-border" style="background-image:url(app-assets/images/blur-bg.jpg);">
+                <div class="card-title text-xs-center">
+                    <div class="p-1"><img src="app-assets/images/logo/login_logo.png" class="img-class" alt="branding logo"></div>
+                </div>
+                <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Login with Bizprout P2P</span></h6>
+            </div>
+            <div class="card-body collapse in" style="background-image:url(app-assets/images/blur-bg.jpg);border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;">
+                <div class="card-block">
+                    <form #loginForm="ngForm" class="form-horizontal form-simple">
+                        <fieldset class="form-group position-relative has-icon-left mb-0">
+                            <input #username="ngModel" type="text" class="form-control form-control-lg input-lg" [(ngModel)]="loginf.username" minlength="5"
+                                maxlength="30" name="user" id="user" placeholder="Your Username" required>
+                            <div class="form-control-position">
+                                <i class="icon-user4"></i>
+                            </div>
+                        </fieldset>
+                        <div *ngIf="username.errors && (username.dirty || username.touched)">
+
+                            <div *ngIf="username.errors.required" class="alert alert-danger">
+                                <strong>Username is required</strong>
+                            </div>
+                            <div *ngIf="username.errors.minlength" class="alert alert-danger">
+                                <strong>Username should be atleast 5 characters long.</strong>
+                            </div>
+                            <div *ngIf="username.errors.maxlength" class="alert alert-danger">
+                                <strong>Username cannot be more than 30 characters.</strong>
+                            </div>
+                        </div>
+                        <br>
+                        <fieldset class="form-group position-relative has-icon-left">
+                            <input #password="ngModel" type="password" class="form-control form-control-lg input-lg" [(ngModel)]="loginf.password" name="password"
+                                id="password" placeholder="Enter Password" required>
+                            <div class="form-control-position">
+                                <i class="icon-key2"></i>
+                            </div>
+                        </fieldset>
+                        <div *ngIf="password.errors && (password.dirty || password.touched)">
+                            <div *ngIf="password.errors.required" class="alert alert-danger">
+                                <strong>Password is required</strong>
+                            </div>
+                        </div>
+
+                        <!--<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>-->
+                        <button (click)="login(username.value, password.value); username.value=''; password.value=''" class="btn btn-info btn-min-width btn-block mr-1 mb-0"><i class="icon-unlock-alt"></i> Login</button>
+
+
+                        <fieldset class="form-group row"><br>
+                            <div class="col-md-12 col-xs-12 text-xs-right text-md-right"><a href="RecoverPassword.html" class="card-link">Forgot Password?</a></div>
+                        </fieldset>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

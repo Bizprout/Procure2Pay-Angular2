@@ -1,0 +1,281 @@
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-6 col-xs-12 mb-1">
+                <h2 class="content-header-title">
+                    <i class="icon-building"></i> Company Info
+                </h2>
+            </div>
+            <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
+                <div class="breadcrumb-wrapper col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="ahref-colr" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="ahref-colr" href="#">Masters</a>
+                        </li>
+                        <li class="breadcrumb-item active"><a class="ahref-colr" href="#">Company</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="content-body" style="margin-left:265px;margin-right:20px;">
+            <!-- Basic form layout section start -->
+            <section id="basic-form-layouts">
+                <div class="row match-height">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-clr">
+                                <ul class="nav nav-tabs nav-justified">
+                                    <li class="nav-item"><a class="nav-link active" id="active-tab" data-toggle="tab" href="#active" aria-controls="active"
+                                            aria-expanded="true">Add</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="link-tab" (click)="getAllCompanyNames()" data-toggle="tab" href="#link"
+                                            aria-controls="link" aria-expanded="false">Edit</a></li>
+                                    <li class="nav-item"><a class="nav-link" id="linkOpt-tab" (click)="getAllCompanyData()" data-toggle="tab"
+                                            href="#linkOpt" aria-controls="linkOpt">Report</a></li>
+                                </ul>
+                                <a class="heading-elements-toggle"><i
+                                    class="icon-ellipsis font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body collapse in">
+                                <div class="card-block">
+                                    <div class="tab-content px-1 pt-1">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="active" aria-labelledby="active-tab" aria-expanded="true">
+                                            <form class="form">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="companyName">Company Name</label>
+                                                            <input #companyname="ngModel" [(ngModel)]="company.companyName" type="text" id="clientName" class="form-control" placeholder="Company Name"
+                                                                name="company">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1">GUID</label>
+                                                                <input #companyguid="ngModel" [(ngModel)]="company.companyGUID" type="text" id="projectinput1" class="form-control" placeholder="Company GUID"
+                                                                    name="clientCode">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput2">Client Name</label> <select id="clientName"
+                                                                    #clientname="ngModel" [(ngModel)]="company.clientId" name="clientName"
+                                                                    class="form-control">
+                                                                    <option value="" selected="" readonly="">Select
+                                                                        Client Name</option>
+                                                                    <option value="1">Manipal Technologies</option>
+                                                                    <option value="2">Scogen</option>
+                                                                    <option value="3">Total
+                                                                        Environment</option>
+                                                                    <option value="4">Kaatizone</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="projectinput2">Contact Person</label> <select id="clientName"
+                                                                #contactperson="ngModel" [(ngModel)]="company.contactPerson"
+                                                                name="clientName" class="form-control">
+                                                                <option value="none" selected="" disabled="">Select
+                                                                    User Name</option>
+                                                                <option value="Suresh">Suresh</option>
+                                                                <option value="Ramesh">Ramesh</option>
+                                                                <option value="Harish">Harish</option>
+                                                                <option value="Subhash">Subhash</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Books Beginning Date</label>
+                                                            <input #booksdate="ngModel" [(ngModel)]="company.companyBooksFrom" type="date" id="tallyBooksFromDate" class="form-control"
+                                                                placeholder="Books Beginning Date" name="tallyBooksFromDate"
+                                                                required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Sync Beginning Date</label>
+                                                            <input #syncdate="ngModel" [(ngModel)]="company.syncFromDate" type="date" id="tallySyncFromDate" class="form-control" placeholder="Sync Beginning Date"
+                                                                name="tallySyncFromDate" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Upload Time</label>
+                                                            <input type="time" id="tallyBooksFromDate" class="form-control" placeholder="Upload Time" name="uploadTime" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Download Time</label>
+                                                            <input type="time" id="Download Time" class="form-control" placeholder="Download Time" name="tallySyncFromDate" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Status</label> <select id="clientName"
+                                                                #status="ngModel" [(ngModel)]="company.status" name="clientName"
+                                                                class="form-control">
+                                                                <option value="none" selected="" disabled="">Select
+                                                                    Status</option>
+                                                                <option value="Active">Active</option>
+                                                                <option value="Inactive">Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button type="button" (click)="addCompany(company)" class="btn btn-success btn-min-width btn-round mr-1 mb-1">
+                                                                <i class="icon-checkmark"></i> Save
+                                                            </button>
+                                                            <button type="reset" class="btn btn-success btn-min-width btn-round mr-1 mb-1">
+                                                                <i class="icon-cross2"></i> Clear
+                                                            </button>
+                                                        </div>
+                                                        <span>{{message}}</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="link" role="tabpanel" aria-labelledby="link-tab" aria-expanded="false">
+                                            <form class="form">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="companyName"> Select Company Name</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-control" id="editusername" (change)="getCompany($event.target.value)">
+                                                                        <option>--Select--</option>
+                                                                        <option *ngFor="let comp of companyNameandId" [value]="comp.companyId">{{comp.companyName}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1">Edit Company Name</label>
+                                                                <input type="text" id="projectinput1" class="form-control" placeholder="Edit Client Name" [(ngModel)]="editdto.ecompanyName"
+                                                                    name="eclientname" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput2">Client Name</label> <select id="clientName"
+                                                                    name="clientName" class="form-control" [(ngModel)]="editdto.eclientId">
+                                                                    <option value="0">--Select--</option>
+                                                                    <option value="1">Manipal Technologies</option>
+                                                                    <option value="2">Scogen</option>
+                                                                    <option value="3">Total Environment</option>
+                                                                    <option value="4">Kaatizone</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="projectinput2">Contact Person</label> <select id="clientName"
+                                                                name="clientName" class="form-control" [(ngModel)]="editdto.econtactPerson">
+                                                                <option value="none" selected="" disabled="">--Select--</option>
+                                                                <option value="Suresh">Suresh</option>
+                                                                <option value="Ramesh">Ramesh</option>
+                                                                <option value="Harish">Harish</option>
+                                                                <option value="Subhash">Subhash</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Books Beginning Date</label>
+                                                            <input type="date" id="tallyBooksFromDate" class="form-control" [(ngModel)]="editdto.ecompanyBooksFrom" placeholder="Books Beginning Date"
+                                                                name="tallyBooksFromDate" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Sync Beginning Date</label>
+                                                            <input type="date" id="tallySyncFromDate" class="form-control" [(ngModel)]="editdto.esyncFromDate" placeholder="Sync Beginning Date"
+                                                                name="tallySyncFromDate" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Upload Time</label>
+                                                            <input type="time" id="tallyBooksFromDate" class="form-control" placeholder="Upload Time" name="uploadTime" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Download Time</label>
+                                                            <input type="time" id="Download Time" class="form-control" placeholder="Download Time" name="tallySyncFromDate" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <label for="projectinput2">Status</label> <select id="clientName"
+                                                                name="clientName" class="form-control" [(ngModel)]="editdto.estatus">
+                                                                <option value="none" selected="" disabled="">--Select--</option>
+                                                                <option value="Active">Active</option>
+                                                                <option value="Inactive">Inactive</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <button type="button" class="btn btn-success btn-min-width btn-round mr-1 mb-1">
+                                                                <i class="icon-checkmark"></i> Save
+                                                            </button>
+                                                            <button type="button" class="btn btn-success btn-min-width btn-round mr-1 mb-1">
+                                                                <i class="icon-cross2"></i> Clear
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <span> </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="linkOpt" role="tabpanel" aria-labelledby="linkOpt-tab" aria-expanded="false">
+                                            <table id="example" class="display" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Company Name</th>
+                                                        <th>Company GUID</th>
+                                                        <th>Books From</th>
+                                                        <th>Sync From Date</th>
+                                                        <th>Contact Person</th>
+                                                        <th>Mobile No.</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Company Name</th>
+                                                        <th>Company GUID</th>
+                                                        <th>Books From</th>
+                                                        <th>Sync From Date</th>
+                                                        <th>Contact Person</th>
+                                                        <th>Mobile No.</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    <tr *ngFor="let company of companydata">
+                                                        <td>{{company.companyName}}</td>
+                                                        <td>{{company.companyGUID}}</td>
+                                                        <td>{{company.companyBooksFrom}}</td>
+                                                        <td>{{company.syncFromDate}}</td>
+                                                        <td>{{company.contactPerson}}</td>
+                                                        <td>{{company.mobileNo}}</td>
+                                                        <td>{{company.status}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
